@@ -24,6 +24,8 @@ from gi.repository import Gtk
 class SeneschalWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'SeneschalWindow'
 
+    drop_down = Gtk.Template.Child()
+
     fingerbreadth_input = Gtk.Template.Child()
     fingerbreadth_output = Gtk.Template.Child()
 
@@ -71,6 +73,16 @@ class SeneschalWindow(Adw.ApplicationWindow):
                 else:
                     perches = self.perch_input.get_text()
                     self.perch_output.set_subtitle(f"{5.0292 * float(perches)}")
+
+        def change_dimensional_quantities(_drop_down, _selected_item):
+            dimensional_quantity = self.drop_down.get_selected_item().get_string()
+            print(dimensional_quantity)
+
+            if (dimensional_quantity != "Length"):
+                # Remove box (?)
+                pass
+
+        self.drop_down.connect("notify::selected-item", change_dimensional_quantities)
 
         self.fingerbreadth_input.connect("changed", on_changed, "fingerbreadth")
         self.ell_input.connect("changed", on_changed, "ell")

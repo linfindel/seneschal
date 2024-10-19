@@ -23,18 +23,26 @@ template $SeneschalWindow: Adw.ApplicationWindow {
       orientation: vertical;
 
       Label {
-        label: _('Length');
-        margin-top: 12;
-        margin-bottom: 12;
-
-        styles ["title-2"]
-      }
-
-      Label {
         label: _("Medieval units were not standardised so expect inconsistencies");
         margin-bottom: 12;
 
         styles ["caption"]
+      }
+
+      DropDown drop_down {
+        margin-top: 12;
+        margin-bottom: 12;
+        margin-start: 12;
+        margin-end: 12;
+
+        model: StringList {
+          strings [
+            "Length",
+            "Area",
+            "Volume",
+            "Weight"
+          ]
+        };
       }
 
       ListBox {
