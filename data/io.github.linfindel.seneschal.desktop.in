@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=seneschal
+Exec=seneschal
+Icon=io.github.linfindel.seneschal
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

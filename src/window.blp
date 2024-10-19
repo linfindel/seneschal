@@ -1,0 +1,157 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $SeneschalWindow: Adw.ApplicationWindow {
+  title: _("Seneschal");
+  default-width: 200;
+  default-height: 600;
+  resizable: false;
+
+  content: Adw.ToolbarView {
+    [top]
+    Adw.HeaderBar {
+      [end]
+      MenuButton {
+        primary: true;
+        icon-name: "open-menu-symbolic";
+        tooltip-text: _("Main Menu");
+        menu-model: primary_menu;
+      }
+    }
+
+    Box {
+      orientation: vertical;
+
+      Label {
+        label: _('Length');
+        margin-top: 12;
+        margin-bottom: 12;
+
+        styles ["title-2"]
+      }
+
+      Label {
+        label: _("Medieval units were not standardised so expect inconsistencies");
+        margin-bottom: 12;
+
+        styles ["caption"]
+      }
+
+      ListBox {
+        margin-start: 12;
+        margin-end: 12;
+        margin-bottom: 12;
+        selection-mode: none;
+
+        styles [
+          "boxed-list"
+        ]
+
+        Adw.EntryRow fingerbreadth_input {
+          title: _("Fingerbreadths/digits");
+        }
+
+        Adw.ActionRow fingerbreadth_output {
+          styles [
+            "property"
+          ]
+
+          title: _("Centimetres");
+          subtitle: _("");
+        }
+      }
+
+      ListBox {
+        margin-start: 12;
+        margin-end: 12;
+        margin-bottom: 12;
+        selection-mode: none;
+
+        styles [
+          "boxed-list"
+        ]
+
+        Adw.EntryRow ell_input {
+          title: _("Ells/cubits");
+        }
+
+        Adw.ActionRow ell_output {
+          styles [
+            "property"
+          ]
+
+          title: _("Metres");
+          subtitle: _("");
+        }
+      }
+
+      ListBox {
+        margin-start: 12;
+        margin-end: 12;
+        margin-bottom: 12;
+        selection-mode: none;
+
+        styles [
+          "boxed-list"
+        ]
+
+        Adw.EntryRow furlong_input {
+          title: _("Furlongs");
+        }
+
+        Adw.ActionRow furlong_output {
+          styles [
+            "property"
+          ]
+
+          title: _("Metres");
+          subtitle: _("");
+        }
+      }
+
+      ListBox {
+        margin-start: 12;
+        margin-end: 12;
+        margin-bottom: 12;
+        selection-mode: none;
+
+        styles [
+          "boxed-list"
+        ]
+
+        Adw.EntryRow perch_input {
+          title: _("Perches");
+        }
+
+        Adw.ActionRow perch_output {
+          styles [
+            "property"
+          ]
+
+          title: _("Metres");
+          subtitle: _("");
+        }
+      }
+
+    }
+  };
+}
+
+menu primary_menu {
+  section {
+    item {
+      label: _("_Preferences");
+      action: "app.preferences";
+    }
+
+    item {
+      label: _("_Keyboard Shortcuts");
+      action: "win.show-help-overlay";
+    }
+
+    item {
+      label: _("_About Seneschal");
+      action: "app.about";
+    }
+  }
+}

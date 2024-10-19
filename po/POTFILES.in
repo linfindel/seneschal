@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/io.github.linfindel.seneschal.desktop.in
+data/io.github.linfindel.seneschal.metainfo.xml.in
+data/io.github.linfindel.seneschal.gschema.xml
+src/main.py
+src/window.py
+src/window.blp
